@@ -1,0 +1,26 @@
+﻿@model Student
+@{
+
+    SelectList deptSl = new SelectList(ViewBag.depts, "DeptId", "Name");
+    ViewBag.Title = "Create a student";
+}
+
+<form method="post">
+    <label asp-for="Name" class="form-label"></label> <input asp-for="Name" class="form-control" />
+    <span class="text-danger" asp-validation-for="Name"></span><br />
+
+    <label asp-for="Age" class="form-label"></label> <input asp-for="Age" class="form-control" />
+    <span class="text-danger" asp-validation-for="Age"></span><br />
+
+    <label asp-for="Email" class="form-label"></label> <input asp-for="Email" class="form-control" />
+    <span class="text-danger" asp-validation-for="Email"></span><br />
+
+    <label asp-for="DeptNo" class="form-label"></label>
+    <select asp-for="DeptNo" asp-items="deptSl">
+    </select>
+    <span class="text-danger" asp-validation-for="DeptNo"></span><br />
+    <input type="submit" value="Add" class="btn btn-success" />
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

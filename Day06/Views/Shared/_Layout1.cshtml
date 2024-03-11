@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <a asp-controller="Student" asp-action="Index" class="btn btn-info">Students</a>
+        <a asp-controller="Department" asp-action="Index" class="btn btn-info">Departments</a>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <div>
+        <h1 class="alert alert-info">
+            Footer @DateTime.Now.ToString()
+        </h1>
+    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿@model Department
+@{
+
+    ViewBag.Title = "Edit a department";
+}
+<form method="post">
+    <label asp-for="Name"></label> <input asp-for="Name" class="form-control" />
+
+    <input type="submit" value="Update" class="btn btn-success" />
+</form>

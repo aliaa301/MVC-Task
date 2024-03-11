@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Student>
+@{
+    // Layout = "_Layout1";
+    ViewBag.Title = "Student List";
+}
+
+<a asp-controller="Student" asp-action="Create" class="btn btn-danger">Create</a>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Studen Name</th>
+            <th>Studen Email</th>
+            <th>Studen Age</th>
+            <th>Department Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3">
+                    No Student
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Age</td>
+                    <td>@item.department?.Name</td>
+                    <td>
+                        <a asp-controller="Student" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                        <a asp-controller="Student" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Update</a>
+                        <a asp-controller="Student" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" onclick="return confirm('Are U Sure!')">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
+

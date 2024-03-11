@@ -1,0 +1,17 @@
+﻿@model Department
+@{
+    // Layout = "_Layout1";
+    ViewBag.Title = "create a department";
+}
+<form method="post">
+    <div asp-validation-summary="ModelOnly"></div>
+    <label asp-for="DeptId"></label> <input asp-for="DeptId" class="form-control" />
+    <span class="text-danger" asp-validation-for="DeptId"></span><br />
+
+    <label asp-for="Name"></label> <input asp-for="Name" class="form-control" />
+    <span class="text-danger" asp-validation-for="Name"></span><br />
+    <input type="submit" value="Add" class="btn btn-success" />
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    TempData.Keep();
+}
+
+<h1>View Index</h1>
+<h1>
+    @TempData["name"]::@TempData["age"] delete
+</h1>
+
+@* <h1>
+    @TempData.Peek("name")::@TempData.Peek("age");
+</h1>
+ *@
